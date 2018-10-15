@@ -1,0 +1,368 @@
+@import "scss/bootstrap.scss";
+@import "scss/_mixin.scss";
+// colors
+$first-color: #2fa992;
+$second-color: #e68617;
+$third-color: #bf0c3c;
+$dark-color: #151517;
+$gray-color: #ececec;
+
+// fonts
+@font-face {
+     font-family: 'source_sans_proextralight';
+     src: url('../fonts/sourcesanspro-extralight-webfont.woff2') format('woff2'),
+     url('../fonts/sourcesanspro-extralight-webfont.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+@font-face {
+     font-family: 'source_sans_prolight';
+     src: url('../fonts/sourcesanspro-light-webfont.woff2') format('woff2'),
+     url('../fonts/sourcesanspro-light-webfont.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+@font-face {
+     font-family: 'source_sans_proregular';
+     src: url('../fonts/sourcesanspro-regular-webfont.woff2') format('woff2'),
+     url('../fonts/sourcesanspro-regular-webfont.woff') format('woff');
+     font-weight: normal;
+     font-style: normal;
+}
+
+$font_regular: source_sans_proregular;
+$font_light: source_sans_prolight;
+$font_extra_light: source_sans_proextralight;
+
+
+@mixin heading-one{
+     font-family: $font_extra_light;
+     font-size: 55px;
+     color: $first-color;
+}
+@mixin heading-two {
+     font-family: $font_light;
+     font-size: 50px;
+     color: $dark-color;
+     position: relative;
+     background: url("../images/heading-lines.png") no-repeat;
+     background-position: center bottom;
+     margin: 45px 0;
+}
+@mixin heading-four{
+     font-family: $font_light;
+     font-size: 30px;
+     color: $dark-color;
+     margin: 45px 0;
+}
+@mixin paragraph {
+     font-size: 18px;
+     line-height: 1.8;
+     color: $dark-color;
+}
+.h2{
+     @include heading-two;
+}
+ul{
+     margin: 0; 
+     padding: 0;
+     li{
+     list-style-type: none;
+     }
+}
+body{
+     font-family: $font_regular;
+     position: relative
+}
+body::before{
+     content: '';
+     background:url("../images/banner-bg.jpg") no-repeat;
+     height: 85vh;
+     width: 100%;
+     display: block;
+     position: absolute;
+     z-index: -1;
+     @include bp-large {
+          height: 75vh;
+     }
+     @include bp-md {
+          height: 46vh;
+     }
+     @include bp-small {
+          height: 40vh;
+     }
+}
+.bg-dark{
+     background-color: $dark-color !important;
+}
+.navbar{
+     .justify-content-stretch{
+          @include bp-small {
+               display: block;
+               width: 100%;
+               text-align: center;
+               padding: 0;
+               margin: 0;
+               a{
+                    font-size: 20px;
+                    padding: 3px 0;
+               }
+          }
+
+     }
+     .navbar-brand{
+          margin-right: 0;
+          @include bp-medium {
+               display: block;
+               width: 100%;
+               text-align: center;
+          }
+          img{
+               @include bp-small {
+                    height: 60px;
+               }
+          }
+     }
+}
+.navbar-brand{
+
+}
+.nav-item{
+     a {
+          font-size: 23px;
+          i{
+               font-size: 20px;
+               margin-right: 5px;
+          }
+     }    
+     .nav-phone{
+          color: white !important;
+          @include bp-medium {
+               display: block;
+               width: 100%;
+               text-align: center;
+          }
+     }
+     .nav-email{
+          color: $second-color !important;
+          @include bp-medium {
+               display: block;
+               width: 100%;
+               text-align: center;
+          }
+     }
+}
+.banner{
+     margin-top: 101px;
+     padding-top: 5px;
+     padding-bottom: 5px;
+     @include bp-small{
+          margin-top: 158px;
+     }
+     h1{
+          @include heading-one;
+          margin-top: 25px;
+     }
+     h1.publishing-heading {
+          color: $third-color;
+     }
+     h1.tour-heading {
+          color: $second-color;
+     }
+     p{
+          font-family: $font_extra-light;
+          font-size: 22px;
+     }
+}
+.features{
+     .card{
+          border: none;
+          border-radius: 0;
+     }
+}
+.features-list{
+     display: -webkit-flex;
+     align-items: center;
+     justify-content: center;
+     background-color: $gray-color;
+     @include bp-md{
+          padding: 25px 10px;
+     }
+     
+     ul{
+          li{
+               color: $dark-color;
+               font-size: 22px;
+               line-height: 2;
+               @include bp-md {
+                    font-size: 18px;
+               }
+               &:before{
+                    content:'\f14a';
+                    font-family: FontAwesome;
+                    color: $third-color;
+                    margin-right: 15px;
+               }
+          }
+     }
+
+}
+.features-video{
+     background-color: $dark-color;
+     display: -webkit-flex;
+     align-items: center;
+     justify-content: center;
+     min-height: 450px;
+     @include bp-md{
+          height: 450px;
+     }
+     iframe{
+          width: 100%;
+          height: 100%;
+          @include bp-md {
+               height: 350px;
+          }
+          @include bp-large {
+               height: 450px;
+          }
+     }
+}
+.pricing{
+     p{
+          @include paragraph;
+     }
+}
+.pricing-holder{
+     margin-bottom: 50px;
+     .card{
+          border-radius: 0;
+          .card-content{
+               padding-top: 15px;
+               span{
+                    font-size: 20px;
+                    font-family: $font_light;
+               }
+          }
+          .box-item{
+               .discription{
+                    color: #747474;
+                    font-size: 14px;
+                    line-height: 18px;
+                    padding-top: 15px;
+               }
+               .digit-box{
+                    font-size: 40px;
+                    span{
+                         font-weight: bold;
+                         position: relative;
+                         top: -10px;
+                    }
+               }
+          }
+     }
+}
+.systems-includes{
+     h4{
+          @include heading-four;
+     }
+     ul{
+          li{
+               &:before{
+                    content: '\f101';
+                    font-family: FontAwesome;
+                    margin-right: 8px;
+                    line-height: 2;
+               }
+          }
+     }
+     .row {
+          margin-bottom: 25px;
+     }
+}
+.about{
+     background: $first-color url("../images/dottet-pattern.png") repeat;
+     position: relative;
+     padding: 25px 0 50px 0;
+     &:before{
+          border-left: 100vw solid rgba(0, 0, 0, 0);
+          border-top: 50px solid #fff;
+          content: "";
+          height: 0;
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 0;
+     }
+     &:after{
+          border-bottom: 50px solid $dark-color;
+          border-left: 100vw solid rgba(0, 0, 0, 0);
+          bottom: 0;
+          content: "";
+          height: 0;
+          position: absolute;
+          right: 0;
+          width: 0;
+     }
+     h2 {
+          color: white !important;
+          margin: 25px 0;
+          background: url("../images/white-lines.png") no-repeat;
+          background-position: center bottom;
+     }
+     p{
+          font-size: 24px;
+          font-family: $font_light;
+          color: white;
+          a{
+               color: white;
+               text-decoration: none;
+          }
+     }
+     .contact{
+          margin-top: 60px;
+          .h4{
+               font-size: 30px;
+               color: white;
+               font-weight: bold;
+               text-transform: uppercase;
+          }
+          p{
+               font-family: $font_regular;
+          }
+         .contact-form{
+             .form-group{
+                 label{
+                     color: white;
+                     font-size: 18px;
+                 }
+                 .form-control{
+                     background: none;
+                     border-bottom: 2px solid white !important;
+                     border: none;
+                     border-radius: 0 !important;
+                     padding: 0.5rem 0;
+                     color: white;
+                     &::placeholder{
+                         color: rgba(255,255,255,0.5);
+                     }
+                 }
+             }
+             .btn-submit{
+                 background: rgba(0,0,0,0.6);
+                 color: white;
+                 cursor: pointer;             }
+         }
+     }
+}
+.publishing-about {
+     background: $third-color url("../images/dottet-pattern.png") repeat;
+}
+.tour-about {
+     background: $second-color url("../images/dottet-pattern.png") repeat;
+}
+footer{
+     background: $dark-color;
+     color: white;
+     line-height: 3.5;
+     font-size: 18px;
+}
